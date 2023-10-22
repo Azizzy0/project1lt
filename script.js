@@ -1,27 +1,37 @@
-// Get elements
-const chatMessages = document.getElementById('chat-messages');
-const messageInput = document.getElementById('message-input');
-const sendButton = document.getElementById('send-button');
+document.addEventListener("DOMContentLoaded", function() {
+    const chatArea = document.getElementById("chatArea");
+    const messageInput = document.getElementById("messageInput");
+    const usernameInput = document.getElementById("usernameInput");
+    const sendButton = document.getElementById("sendButton");
+    const clearButton = document.getElementById("clearButton"); // New "Clear Chat" button
 
-// Function to add a message to the chat
-function addMessage(message) {
-    const messageDiv = document.createElement('div');
-    messageDiv.textContent = message;
-    chatMessages.appendChild(messageDiv);
-}
-
-// Event listener for the send button
-sendButton.addEventListener('click', function () {
-    const message = messageInput.value;
-    if (message.trim() !== '') {
-        addMessage('You: ' + message);
-        messageInput.value = '';
+    // Function to display a message with the username
+    function displayMessage(username, message) {
+        chatArea.innerHTML += `<strong>${username}:</strong> ${message}<br>`;
+        // Scroll to the bottom of the chat area
+        chatArea.scrollTop = chatArea.scrollHeight;
     }
-});
 
-// Event listener for pressing Enter in the input field
-messageInput.addEventListener('keyup', function (event) {
-    if (event.key === 'Enter') {
-        sendButton.click(); // Trigger the button click event
+    // Function to send a message
+    function sendMessage() {
+        // ... (no changes here)
     }
+
+    // Function to clear the chat
+    function clearChat() {
+        chatArea.innerHTML = ""; // Clear the chat display
+        localStorage.removeItem("chatMessages"); // Remove stored messages
+    }
+
+    // Load and display stored messages when the page loads
+    const storedMessages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+    storedMessages.forEach(function({ username, message }) {
+        displayMessage(username, message);
+    });
+
+    // Event listeners
+    sendButton.addEventListener("click", sendMessage);
+    clearButton.addEventListener("click", clearChat);
+
+    // ...
 });
