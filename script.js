@@ -7,14 +7,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to display a message with the username
     function displayMessage(username, message) {
-        chatArea.innerHTML += `<strong>${username}:</strong> ${message}<br>`;
+        const messageElement = document.createElement("div");
+        messageElement.innerHTML = `<strong>${username}:</strong> ${message}`;
+        chatArea.appendChild(messageElement);
+
         // Scroll to the bottom of the chat area
         chatArea.scrollTop = chatArea.scrollHeight;
     }
 
     // Function to send a message
     function sendMessage() {
-        // ... (no changes here)
+        const username = usernameInput.value;
+        const message = messageInput.value;
+        if (username.trim() !== "" && message.trim() !== "") {
+            displayMessage(username, message);
+
+            // Save the message in localStorage
+            const storedMessages = JSON.parse(localStorage.getItem("chatMessages")) || [];
+            storedMessages.push({ username, message });
+            localStorage.setItem("chatMessages", JSON.stringify(storedMessages));
+
+            messageInput.value = "";
+        }
     }
 
     // Function to clear the chat
