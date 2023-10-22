@@ -1,0 +1,33 @@
+/* Chatbox styles */
+.chatbox {
+    border: 1px solid #ccc;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top:70px;
+}
+
+/* Chat messages styles */
+.chat-messages {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Input field and send button styles */
+.chat-input {
+    display: flex;
+    margin-top: px;
+}
+
+#message-input {
+    flex: 1;
+    padding: 5px;
+    margin-top:100px;
+}
+
+#send-button {
+    margin-top:100px;
+    padding: 5px 10px;
+}
+
+
