@@ -4,19 +4,19 @@
     width: 300px;
     margin: 0 auto;
     padding: 10px;
-    margin-top:70px;
+    margin-top:90px;
 }
 
 /* Chat messages styles */
 .chat-messages {
     max-height: 200px;
     overflow-y: auto;
+    
 }
 
 /* Input field and send button styles */
 .chat-input {
     display: flex;
-    margin-top: px;
 }
 
 #message-input {
