@@ -65,6 +65,10 @@ marquee {
     margin-right:10px;
 }
 
+.chat {
+    height: 200px;
+    background-color: aliceblue;
+}
 body {
     background: url("blackback.png");
 }
