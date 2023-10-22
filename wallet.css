@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(47, 36, 34);
+}
+
+h1 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(235, 238, 231);
+}
+
+h2 {
+    color:grey;
+    letter-spacing: 2px;
+}
+
+ol {
+    color:grey;
+}
